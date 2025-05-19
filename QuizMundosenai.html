@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Questionário Lógica e Python (V/F)</title>
+  <style type="text/css">
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f7fb;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-top: 40px;
+    }
+
+    form {
+      max-width: 600px;
+      background-color: white;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #34495e;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 5px 0;
+      color: #555;
+      cursor: pointer;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="submit"], button[type="submit"] {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover, button[type="submit"]:hover {
+      background-color: #2980b9;
+    }
+
+    #mensagem-encerrada {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #d1ecf1;
+      color: #0c5460;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Questionário: Lógica, Algoritmos e Python (V/F)</h1>
+  <form id="formulario">
+    <div id="perguntas-container"></div>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div id="mensagem-encerrada"></div>
+
+  <script>
+    // Perguntas com enunciado e resposta correta (V ou F)
+    const todasPerguntas = [
+      { texto: "Python é uma linguagem de programação interpretada.", resposta: "V" },
+      { texto: "Um algoritmo é uma sequência de passos para resolver um problema.", resposta: "V" },
+      { texto: "Em Python, a indentação não é importante para o código.", resposta: "F" },
+      { texto: "Um 'while' pode não executar nenhuma vez, se a condição for falsa.", resposta: "V" },
+      { texto: "Um 'if' em Python termina obrigatoriamente com ';'.", resposta: "F" },
+      { texto: "A variável em Python pode mudar seu tipo durante a execução.", resposta: "V" },
+      { texto: "Na lógica, 'AND' é verdadeiro apenas se ambas as condições forem verdadeiras.", resposta: "V" },
+      { texto: "Em Python, listas são imutáveis.", resposta: "F" },
+      { texto: "Um algoritmo pode ser representado por um fluxograma.", resposta: "V" },
+      { texto: "O comando 'print' em Python serve para receber dados do usuário.", resposta: "F" },
+      { texto: "Em Python, a função 'len()' retorna o tamanho de uma string ou lista.", resposta: "V" },
+      { texto: "O operador '==' verifica se dois valores são diferentes.", resposta: "F" },
+      { texto: "Em lógica, 'OR' é falso apenas quando ambas as condições são falsas.", resposta: "V" },
+      { texto: "Um loop 'for' em Python sempre itera sobre números.", resposta: "F" },
+      { texto: "Um algoritmo deve sempre terminar após um número finito de passos.", resposta: "V" },
+      { texto: "Em Python, a palavra reservada para função é 'func'.", resposta: "F" },
+      { texto: "Comentários em Python começam com o símbolo '#' .", resposta: "V" },
+      { texto: "Uma variável em Python pode começar com número.", resposta: "F" },
+      { texto: "O operador '%' em Python é usado para obter o resto da divisão.", resposta: "V" },
+      { texto: "Python é uma linguagem compilada diretamente em código de máquina.", resposta: "F" }
+    ];
+
+    // Função para embaralhar um array
+    function embaralhar(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    // Selecionar 10 perguntas aleatórias
+    embaralhar(todasPerguntas);
+    const perguntasSelecionadas = todasPerguntas.slice(0, 10);
+
+    const container = document.getElementById("perguntas-container");
+
+    perguntasSelecionadas.forEach((p, i) => {
+      const div = document.createElement("div");
+      div.classList.add("pergunta");
+
+      div.innerHTML = `
+        <p><strong>${i + 1}.</strong> ${p.texto}</p>
+        <label><input type="radio" name="q${i}" value="V" required> Verdadeiro</label>
+        <label><input type="radio" name="q${i}" value="F"> Falso</label>
+      `;
+
+      container.appendChild(div);
+    });
+
+    document.getElementById("formulario").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let pontos = 0;
+      perguntasSelecionadas.forEach((p, i) => {
+        const resposta = document.querySelector(`input[name="q${i}"]:checked`).value;
+        if (resposta === p.resposta) pontos++;
+      });
+
+      // Enviar resultado para o servidor (altere o URL para seu endpoint real)
+      fetch('https://seuservidor.com/api/salvar-pontuacao', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ acertos: pontos, total: perguntasSelecionadas.length, data: new Date().toISOString() })
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Erro ao enviar resultado');
+        return response.json();
+      })
+      .then(data => {
+        console.log('Resultado salvo com sucesso:', data);
+      })
+      .catch(err => {
+        console.error('Falha no envio do resultado:', err);
+      });
+
+      alert(`Você acertou ${pontos} de 10 perguntas.`);
+
+      // Desabilita todas as opções de resposta e o botão enviar
+      const inputs = document.querySelectorAll("input[type=radio]");
+      inputs.forEach(input => input.disabled = true);
+
+      this.querySelector("button[type=submit]").disabled = true;
+
+      // Exibe mensagem de sessão encerrada
+      const mensagem = document.getElementById("mensagem-encerrada");
+      mensagem.textContent = "Sessão encerrada. Obrigado por participar!";
+      mensagem.style.display = "block";
+    });
+  </script>
+</body>
+</html>
