@@ -1,23 +1,22 @@
-const todasPerguntas = [
-  { texto: "Mais de 400 motoristas dormiram ao volante...", resposta: "V" },
-  { texto: "Os acidentes nas rodovias federais...", resposta: "V" },
-  { texto: "Os acidentes de trânsito relacionados à sonolência...", resposta: "F" },
-  { texto: "A sonolência ao volante compromete...", resposta: "V" },
-  { texto: "Em 2024, a BR-101 foi a rodovia...", resposta: "V" },
-  { texto: "O sistema de detecção de cansaço...", resposta: "F" },
-  { texto: "A ideia do projeto é tornar a tecnologia...", resposta: "V" },
-  { texto: "Carros fabricados antes de 2000...", resposta: "F" },
-  { texto: "O sistema de detecção de cansaço do projeto...", resposta: "V" },
-  { texto: "A tecnologia de detecção de cansaço...", resposta: "V" },
-  { texto: "O projeto Direção Segura pretende salvar vidas...", resposta: "V" },
-  { texto: "O sistema de detecção de cansaço detecta apenas...", resposta: "F" },
-  { texto: "O Direção Segura é um projeto que visa...", resposta: "V" },
-  { texto: "Em carros modernos, a tecnologia de detecção...", resposta: "V" },
-  { texto: "O JavaScript não é utilizado para criar interatividade...", resposta: "F" },
-  { texto: "O HTML é responsável pela estrutura...", resposta: "V" },
-  { texto: "O CSS é utilizado para criar a interatividade...", resposta: "F" }
-];
-
+   const todasPerguntas = [
+      { texto: "Mais de 400 motoristas dormiram ao volante e causaram acidentes nas rodovias de Santa Catarina entre janeiro de 2021 e abril de 2023.", resposta: "V" },
+      { texto: "Os acidentes nas rodovias federais de Santa Catarina em 2024 tiveram um aumento de 14% nas mortes em relação a 2023.", resposta: "V" },
+      { texto: "Os acidentes de trânsito relacionados à sonolência ao volante não representam risco significativo para a segurança nas rodovias.", resposta: "F" },
+      { texto: "A sonolência ao volante compromete o tempo de reação, a atenção e a tomada de decisões rápidas, aumentando o risco de colisões graves.", resposta: "V" },
+      { texto: "Em 2024, a BR-101 foi a rodovia com mais acidentes em Santa Catarina.", resposta: "V" },
+      { texto: "O sistema de detecção de cansaço é um recurso presente em todos os carros fabricados no Brasil.", resposta: "F" },
+      { texto: "A ideia do projeto é tornar a tecnologia de detecção de sonolência acessível a motoristas de veículos mais antigos.", resposta: "V" },
+      { texto: "Carros fabricados antes de 2000 geralmente possuem sistemas de detecção de fadiga.", resposta: "F" },
+      { texto: "O sistema de detecção de cansaço do projeto desacelera ou para o veículo automaticamente caso o motorista esteja com sinais de sonolência.", resposta: "V" },
+      { texto: "A tecnologia de detecção de cansaço é um recurso que surgiu com os carros de luxo após os anos 2000.", resposta: "V" },
+      { texto: "O projeto Direção Segura pretende salvar vidas ao levar a tecnologia de detecção de cansaço a motoristas com veículos menos tecnológicos.", resposta: "V" },
+      { texto: "O sistema de detecção de cansaço detecta apenas o movimento do volante, sem verificar os sinais do motorista.", resposta: "F" },
+      { texto: "O Direção Segura é um projeto que visa aumentar a segurança nas rodovias por meio de tecnologia acessível para todos os motoristas.", resposta: "V" },
+      { texto: "Em carros modernos, a tecnologia de detecção de fadiga é uma inovação que já salva muitas vidas.", resposta: "V" },
+      { texto: "O JavaScript não é utilizado para criar interatividade nas páginas da web.", resposta: "F" },
+      { texto: "O HTML é responsável pela estrutura e conteúdo de uma página web.", resposta: "V" },
+      { texto: "O CSS é utilizado para criar a interatividade nas páginas web.", resposta: "F" }
+    ];
 const perguntasSelecionadas = [...todasPerguntas]
   .sort(() => Math.random() - 0.5)
   .slice(0, 10);
@@ -81,12 +80,7 @@ function bloquearFormulario() {
 }
 
 reiniciar.addEventListener("click", () => {
-  const senha = prompt("Digite a senha para tentar novamente:");
-  if (senha === "senai1234") {
-    localStorage.removeItem("quizRespondido");
-    localStorage.removeItem("quizIniciado");
-    location.reload();
-  } else {
-    alert("Senha incorreta. Você não pode reiniciar o quiz.");
-  }
+  localStorage.removeItem("quizRespondido");
+  localStorage.removeItem("quizIniciado");
+  location.reload();
 });
