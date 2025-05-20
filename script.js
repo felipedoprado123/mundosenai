@@ -84,3 +84,8 @@ reiniciar.addEventListener("click", () => {
   localStorage.removeItem("quizIniciado");
   location.reload();
 });
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    location.reload(); // Atualiza a página quando o usuário retorna
+  }
+});
