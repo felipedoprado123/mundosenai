@@ -1,29 +1,31 @@
-<!DOCTYPE html>
+
+html_files = {
+    "index.html": """<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projeto SENAI - Programação 2025</title>
+  <title>Home - SENAI</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
 </head>
 <body>
 
-  <div class="nav">
-    <a href="#home">Home</a>
-    <a href="#visaosegura">Visão Segura</a>
-    <a href="#quiz">Quiz</a>
-    <a href="#sistema-solar">Sistema Solar</a>
+  <div class="header">
+    <h1>SENAI</h1>
+    <h1>PROGRAMADOR DE SISTEMAS</h1>
   </div>
 
-  <section id="home" class="content">
-    <div class="header">
-      <h1>SENAI</h1>
-      <h1>PROGRAMADOR DE SISTEMAS</h1>
-    </div>
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="visaosegura.html">Visão Segura</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="sistsolar.html">Sistema Solar</a>
+  </div>
+
+  <div class="content">
     <div class="section">
       <h2>👩‍💻 Turma de Programação 2025 - SENAI</h2>
-      <p>Sejam muito bem-vindos ao nosso site! Aqui você vai conhecer a galera da Turma de Programação 2025 do SENAI — um grupo cheio de mentes criativas, curiosas e prontas para o futuro...</p>
+      <p>Sejam muito bem-vindos ao nosso site! Aqui você vai conhecer a galera da Turma de Programação 2025 do SENAI...</p>
       <img src="assets/imagem/1000118559.jpg" alt="Turma SENAI 2025" />
     </div>
     <div class="section">
@@ -44,12 +46,38 @@
       <h3>🧠 Quiz Interativo</h3>
       <p>Um jogo de perguntas e respostas para testar os conhecimentos do público...</p>
     </div>
-  </section>
+  </div>
 
-  <section id="visaosegura" class="content">
-    <div class="header">
-      <h1>DIREÇÃO SEGURA</h1>
-    </div>
+  <footer>
+    <div>&copy; 2025 - Projeto SENAI - Programador de Sistemas - SENAI Videira</div>
+  </footer>
+
+</body>
+</html>
+""",
+
+    "visaosegura.html": """<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Visão Segura</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="header">
+    <h1>DIREÇÃO SEGURA</h1>
+  </div>
+
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="visaosegura.html">Visão Segura</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="sistsolar.html">Sistema Solar</a>
+  </div>
+
+  <div class="content">
     <div class="section">
       <h2>🛑 Motivo do Projeto</h2>
       <p>Entre 2021 e 2023, mais de 400 motoristas dormiram ao volante e causaram acidentes nas rodovias de Santa Catarina...</p>
@@ -66,47 +94,16 @@
       <h2>🚗 Por que esse projeto é importante?</h2>
       <p>Segurança no trânsito não pode ser um luxo. A gente acredita que todo motorista merece dirigir com segurança...</p>
     </div>
-  </section>
-
-  <section id="quiz" class="content">
-    <div class="header">
-      <h1>QUIZ INTERATIVO</h1>
-    </div>
-    <form id="formulario" data-bloqueado="false">
-      <div id="perguntas-container"></div>
-      <button type="submit">✅ Enviar Respostas</button>
-    </form>
-    <div id="mensagem-encerrada"></div>
-    <div id="pontuacao-barra"><div id="barra"></div></div>
-    <button id="reiniciar">🔁 Tentar Novamente</button>
-  </section>
-
-  <section id="sistema-solar" class="content">
-    <div class="header">
-      <h1>PROJETO SISTEMA SOLAR 🌎</h1>
-      <p>Aprender astronomia nunca foi tão divertido!</p>
-    </div>
-    <div class="section">
-      <h2>Motivo do Projeto 🌞</h2>
-      <p>Muitos alunos têm dificuldade ou desinteresse ao aprender astronomia...</p>
-    </div>
-    <div class="section">
-      <h2>O Projeto 🌠</h2>
-      <button class="planet-button" onclick="toggleInfo('mercurio')">Mercúrio</button>
-      <button class="planet-button" onclick="toggleInfo('venus')">Vênus</button>
-      <button class="planet-button" onclick="toggleInfo('terra')">Terra</button>
-      <button class="planet-button" onclick="toggleInfo('marte')">Marte</button>
-      <div id="mercurio" class="planet-card"><h3>🌑 Mercúrio</h3><p>É o planeta mais próximo do Sol...</p></div>
-      <div id="venus" class="planet-card"><h3>🌕 Vênus</h3><p>É parecido em tamanho com a Terra...</p></div>
-      <div id="terra" class="planet-card"><h3>🌍 Terra</h3><p>Nosso lar! Único planeta conhecido que abriga vida.</p></div>
-      <div id="marte" class="planet-card"><h3>🔴 Marte</h3><p>Conhecido como o planeta vermelho, tem grandes chances de exploração humana futura.</p></div>
-    </div>
-    <div class="comet" onclick="cometInfo()"></div>
-  </section>
+  </div>
 
   <footer>
-    <div>&copy; 2025 - Projeto SENAI - Programador de Sistemas - SENAI Videira</div>
+    <div>&copy; 2025 - Projeto VISÃO SEGURA - SENAI Videira</div>
   </footer>
 
 </body>
 </html>
+"""
+}
+
+zip_path.name  # retornar o nome final para link de download
+
