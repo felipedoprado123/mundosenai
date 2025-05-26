@@ -1,0 +1,211 @@
+
+/* === ESTILO GERAL === */
+body {
+  font-family: "Verdana", "Geneva", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
+  color: #222;
+}
+
+.header {
+  background: linear-gradient(90deg, #005ca9, #003366);
+  color: #ffffff;
+  padding: 30px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav {
+  background-color: #002f5f;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav a {
+  color: #ffffff;
+  padding: 16px 20px;
+  text-decoration: none;
+  font-size: 17px;
+  transition: background 0.3s, transform 0.3s;
+}
+.nav a:hover {
+  background-color: #005ca9;
+  transform: translateY(-2px);
+}
+
+.content {
+  padding: 30px;
+  background-color: #ffffff;
+  margin: 30px auto;
+  max-width: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* === SECTIONS === */
+.section {
+  margin-bottom: 40px;
+}
+.section h2 {
+  color: #003366;
+  border-bottom: 3px solid #005ca9;
+  padding-bottom: 10px;
+  font-size: 26px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #00b4d8;
+}
+.section img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.section img:hover {
+  transform: scale(1.02);
+}
+
+/* === QUIZ === */
+.pergunta {
+  padding: 15px;
+  border-left: 6px solid #007acc;
+  background: #f7fbff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.correta {
+  background-color: #d4f4e7;
+  border-left-color: #2ecc71;
+}
+.errada {
+  background-color: #ffe6e6;
+  border-left-color: #e74c3c;
+}
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #005a9c;
+}
+button[type="submit"] {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+  display: block;
+  margin: 30px auto;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+#mensagem-encerrada {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #eaf9ff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 2px solid #b3e5fc;
+  display: none;
+}
+#pontuacao-barra {
+  max-width: 600px;
+  margin: 20px auto;
+  height: 20px;
+  background: #cfefff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+}
+#barra {
+  background: #00bfff;
+  height: 100%;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+#reiniciar {
+  display: none;
+  background: #007acc;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+/* === SISTEMA SOLAR === */
+.planet-button {
+  background-color: #005ca9;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.planet-button:hover {
+  background-color: #003f6b;
+}
+.planet-card {
+  background: #f4faff;
+  border: 1px solid #cce4f7;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  display: none;
+}
+
+/* === COMETA === */
+.comet {
+  position: fixed;
+  top: 50px;
+  left: -200px;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, white, #88ccff, transparent);
+  box-shadow: 0 0 8px #88ccff;
+  z-index: 999;
+  transform: rotate(30deg);
+  animation: moveComet 10s linear infinite;
+  cursor: pointer;
+}
+@keyframes moveComet {
+  0%   { left: -200px; top: 60px; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 120%; top: 120px; opacity: 0; }
+}
+
+/* === RODAPÉ === */
+footer {
+  background-color: #003366;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+}
