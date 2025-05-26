@@ -1,1 +1,0 @@
-// JavaScript será preenchido depois
