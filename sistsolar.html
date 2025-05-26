@@ -1,0 +1,242 @@
+s<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SISTEMA SOLAR ☀️</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Verdana", "Geneva", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Fundo animado com estrelas */
+   body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://lh3.googleusercontent.com/a-/ALV-UjVYqZ_1IL2PaqUha3oPPESCFKHrdraNPTxppOjr7Vg8foqxaweF=s65-p-k-rw-no') repeat;
+  z-index: -1;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+}
+
+    .header {
+      background: linear-gradient(90deg, #000000, #000000);
+      color: #f8f2b3;
+      padding: 30px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav {
+      background-color: #000000;
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav a {
+      color: #bce5fd;
+      padding: 16px 20px;
+      text-decoration: none;
+      font-size: 17px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .nav a:hover {
+      background-color: #222;
+      transform: translateY(-2px);
+    }
+
+    .content {
+      padding: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section h2 {
+      color: #fde06f;
+      border-bottom: 3px solid #f8fdb3;
+      padding-bottom: 10px;
+      font-size: 26px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .section img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .section img:hover {
+      transform: scale(1.02);
+    }
+
+    .planet-card {
+      background: #111;
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .planet-button {
+      background-color: #005ca9;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .planet-button:hover {
+      background-color: #003f6b;
+    }
+
+    footer {
+      background-color: #000000;
+      color: #c8ddff;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+
+    /* Cometa animado */
+    #cometa {
+      position: fixed;
+      top: 40px;
+      width: 100px;
+      cursor: pointer;
+      z-index: 10000;
+      border-radius: 8px;
+   
+      animation: moverCometa 8s linear infinite alternate;
+    }
+
+    @keyframes moverCometa {
+      0% {
+        left: 10px;
+        transform: rotate(0deg);
+      }
+      50% {
+        left: calc(100% - 120px);
+        transform: rotate(15deg);
+      }
+      100% {
+        left: 10px;
+        transform: rotate(0deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>PROJETO SISTEMA SOLAR 🌎</h1>
+    <p>Aprender astronomia nunca foi tão divertido!</p>
+  </div>
+
+  <div class="nav">
+    <a href="index.html"><i class="fas fa-home"></i> home</a>
+    <a href="#motivo"><i class="fas fa-exclamation-triangle"></i> Motivo</a>
+    <a href="#projeto"><i class="fas fa-bullseye"></i> O Projeto</a>
+    <a href="#publico"><i class="fas fa-users"></i> Público-Alvo</a>
+    <a href="#desenvolvimento"><i class="fas fa-code"></i> Desenvolvimento</a>
+  </div>
+
+  <!-- Cometa clicável que abre a Wikipédia em nova aba -->
+ <a href="https://pt.wikipedia.org/wiki/Cometa" target="_blank" rel="noopener noreferrer">
+    <img id="cometa" src="cometaremove.png" alt="Cometa" />
+  </a>
+
+  <div class="content">
+    <div id="motivo" class="section">
+      <h2>Motivo do Projeto 🌞</h2>
+      <p>Muitos alunos têm dificuldade ou desinteresse ao aprender astronomia, pois o conteúdo costuma ser excessivamente teórico e pouco atrativo. Faltam recursos que tornem o aprendizado mais acessível, visual e envolvente.</p>
+      <img src="https://wh3.com.br/galerias/noticias/640/232427090518_capturadetela20230524as22.27.01.png" alt="Estatísticas escolares" />
+    </div>
+
+    <div id="projeto" class="section">
+      <h2>O Projeto 🌠</h2>
+      <p>Desenvolvemos uma aplicação interativa em 2D que apresenta os planetas do Sistema Solar. Ao clicar nos botões abaixo, você pode conhecer mais sobre cada planeta!</p>
+      <button class="planet-button" onclick="toggleInfo('mercurio')">Mercúrio</button>
+      <button class="planet-button" onclick="toggleInfo('venus')">Vênus</button>
+      <button class="planet-button" onclick="toggleInfo('terra')">Terra</button>
+      <button class="planet-button" onclick="toggleInfo('marte')">Marte</button>
+
+      <div id="mercurio" class="planet-card">
+        <h3>🌑 Mercúrio</h3>
+        <p>É o planeta mais próximo do Sol e não possui atmosfera significativa.</p>
+      </div>
+      <div id="venus" class="planet-card">
+        <h3>🌕 Vênus</h3>
+        <p>É parecido em tamanho com a Terra, mas com uma atmosfera extremamente densa.</p>
+      </div>
+      <div id="terra" class="planet-card">
+        <h3>🌍 Terra</h3>
+        <p>Nosso lar! Único planeta conhecido que abriga vida.</p>
+      </div>
+      <div id="marte" class="planet-card">
+        <h3>🔴 Marte</h3>
+        <p>Conhecido como o planeta vermelho, tem grandes chances de exploração humana futura.</p>
+      </div>
+    </div>
+
+    <div id="publico" class="section">
+      <h2>O Público-Alvo 🌝</h2>
+      <p>Estudantes do ensino fundamental e médio, professores que buscam recursos didáticos e qualquer pessoa que queira aprender astronomia de forma interativa.</p>
+    </div>
+
+    <div id="desenvolvimento" class="section">
+      <h2>Desenvolvimento 🌌</h2>
+      <p>O projeto foi feito com HTML, CSS e JavaScript. Buscamos dados sobre os planetas, organizamos em cards e aplicamos efeitos visuais para uma experiência educativa e atrativa.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>&copy; 2025 - Projeto Sistema Solar - SENAI Videira</div>
+  </footer>
+
+  <script>
+    function toggleInfo(planetId) {
+      const cards = document.querySelectorAll('.planet-card');
+      cards.forEach(card => {
+        card.style.display = (card.id === planetId && card.style.display !== 'block') ? 'block' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
